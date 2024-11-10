@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoothie Machine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>The Smoothie Machine</h2>
+        <form id="smoothieForm">
+            <label for="size">Choose Size:</label>
+            <select id="size" name="size">
+                <option value="small">Small ($3.00)</option>
+                <option value="medium">Medium ($4.50)</option>
+                <option value="large">Large ($5.50)</option>
+            </select>
+
+            <label for="base">Choose Base:</label>
+            <select id="base" name="base">
+                <option value="milk">Milk</option>
+                <option value="almond-milk">Almond Milk</option>
+                <option value="coconut-water">Coconut Water</option>
+            </select>
+
+            <label>Choose Fruits (50¢ each):</label>
+            <input type="checkbox" name="fruit" value="banana"> Banana
+            <input type="checkbox" name="fruit" value="strawberry"> Strawberry
+            <input type="checkbox" name="fruit" value="mango"> Mango
+            <input type="checkbox" name="fruit" value="blueberry"> Blueberry
+
+            <label>Add Extras ($1.00 each):</label>
+            <input type="checkbox" name="extra" value="protein"> Protein Powder
+            <input type="checkbox" name="extra" value="chia-seeds"> Chia Seeds
+            <input type="checkbox" name="extra" value="honey"> Honey
+
+            <button type="button" onclick="orderSmoothie()">Order Smoothie</button>
+        </form>
+
+        <div id="orderSummary"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
