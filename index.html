@@ -8,32 +8,72 @@
 </head>
 <body>
     <div class="container">
-        <h2>The Smoothie Machine</h2>
+        <header>
+            <h1>The Smoothie Machine</h1>
+            <p>Customize your perfect smoothie!</p>
+        </header>
+
         <form id="smoothieForm">
-            <label for="size">Choose Size:</label>
-            <select id="size" name="size">
-                <option value="small">Small ($3.00)</option>
-                <option value="medium">Medium ($4.50)</option>
-                <option value="large">Large ($5.50)</option>
-            </select>
+            <div class="form-group">
+                <label for="size">Choose Size:</label>
+                <select id="size" name="size">
+                    <option value="small">Small ($3.00)</option>
+                    <option value="medium">Medium ($4.50)</option>
+                    <option value="large">Large ($5.50)</option>
+                </select>
+            </div>
 
-            <label for="base">Choose Base:</label>
-            <select id="base" name="base">
-                <option value="milk">Milk</option>
-                <option value="almond-milk">Almond Milk</option>
-                <option value="coconut-water">Coconut Water</option>
-            </select>
+            <div class="form-group">
+                <label for="base">Choose Base:</label>
+                <select id="base" name="base">
+                    <option value="milk">Milk</option>
+                    <option value="almond-milk">Almond Milk</option>
+                    <option value="coconut-water">Coconut Water</option>
+                </select>
+            </div>
 
-            <label>Choose Fruits (50¢ each):</label>
-            <input type="checkbox" name="fruit" value="banana"> Banana
-            <input type="checkbox" name="fruit" value="strawberry"> Strawberry
-            <input type="checkbox" name="fruit" value="mango"> Mango
-            <input type="checkbox" name="fruit" value="blueberry"> Blueberry
+            <div class="form-group fruits">
+                <label>Choose Fruits (50¢ each):</label>
+                <div class="fruit-option">
+                    <input type="checkbox" name="fruit" value="banana">
+                    <img src="photos/banana.jpg" alt="Banana">
+                    <span>Banana</span>
+                </div>
+                <div class="fruit-option">
+                    <input type="checkbox" name="fruit" value="strawberry">
+                    <img src="photos/strawberry.jpg" alt="Strawberry">
+                    <span>Strawberry</span>
+                </div>
+                <div class="fruit-option">
+                    <input type="checkbox" name="fruit" value="mango">
+                    <img src="photos/mango.jpg" alt="Mango">
+                    <span>Mango</span>
+                </div>
+                <div class="fruit-option">
+                    <input type="checkbox" name="fruit" value="blueberry">
+                    <img src="photos/blueberry.jpg" alt="Blueberry">
+                    <span>Blueberry</span>
+                </div>
+            </div>
 
-            <label>Add Extras ($1.00 each):</label>
-            <input type="checkbox" name="extra" value="protein"> Protein Powder
-            <input type="checkbox" name="extra" value="chia-seeds"> Chia Seeds
-            <input type="checkbox" name="extra" value="honey"> Honey
+            <div class="form-group extras">
+                <label>Add Extras ($1.00 each):</label>
+                <div class="extra-option">
+                    <input type="checkbox" name="extra" value="protein">
+                    <img src="images/protein.png" alt="Protein Powder">
+                    <span>Protein Powder</span>
+                </div>
+                <div class="extra-option">
+                    <input type="checkbox" name="extra" value="chia-seeds">
+                    <img src="images/chia.png" alt="Chia Seeds">
+                    <span>Chia Seeds</span>
+                </div>
+                <div class="extra-option">
+                    <input type="checkbox" name="extra" value="honey">
+                    <img src="images/honey.png" alt="Honey">
+                    <span>Honey</span>
+                </div>
+            </div>
 
             <button type="button" onclick="orderSmoothie()">Order Smoothie</button>
         </form>
