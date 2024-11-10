@@ -1,42 +1,47 @@
-// Smoothie Class
-class Smoothie {
-    constructor(size, base, fruits, extras, price) {
-        this.size = size;
-        this.base = base;
-        this.fruits = fruits;
-        this.extras = extras;
-        this.price = price;
-    }
-
-    getDescription() {
-        return `
-            <p>You ordered a <strong>${this.size}</strong> smoothie with <strong>${this.base}</strong>, including 
-            fruits: <strong>${this.fruits.join(", ") || "none"}</strong> and extras: 
-            <strong>${this.extras.join(", ") || "none"}</strong>.</p>
-            <p class="price">Total Price: $${this.price.toFixed(2)}</p>
-        `;
-    }
-}
-
 function orderSmoothie() {
-    // Get size, base, fruits, and extras selections
-    const size = document.getElementById("size").value;
-    const base = document.getElementById("base").value;
-    const fruits = Array.from(document.querySelectorAll("input[name='fruit']:checked")).map(fruit => fruit.value);
-    const extras = Array.from(document.querySelectorAll("input[name='extra']:checked")).map(extra => extra.value);
+    const size = document.getElementById('size').value;
+    const base = document.getElementById('base').value;
 
-    // Calculate price based on selections
-    let price = 0;
-    if (size === "small") price += 3.00;
-    else if (size === "medium") price += 4.50;
-    else if (size === "large") price += 5.50;
+    // Get selected fruits and extras
+    const selectedFruits = Array.from(document.querySelectorAll('input[name="fruit"]:checked'))
+        .map(checkbox => checkbox.value);
+    const selectedExtras = Array.from(document.querySelectorAll('input[name="extra"]:checked'))
+        .map(checkbox => checkbox.value);
+
+    // Define prices
+    const sizePrices = {
+        small: 3.00,
+        medium: 4.50,
+        large: 5.50
+    };
     
-    price += fruits.length * 0.50;  // 50¢ per fruit
-    price += extras.length * 1.00;  // $1.00 per extra
+    const fruitPrice = 0.50;
+    const extraPrice = 1.00;
 
-    // Create a new Smoothie object
-    const smoothie = new Smoothie(size, base, fruits, extras, price);
+    let totalPrice = sizePrices[size];
+    let fruitList = '';
+    let extraList = '';
 
-    // Display the smoothie description and price on the page
-    document.getElementById("orderSummary").innerHTML = smoothie.getDescription();
+    selectedFruits.forEach(fruit => {
+        fruitList += `<li>${fruit.charAt(0).toUpperCase() + fruit.slice(1)} ($${fruitPrice})</li>`;
+        totalPrice += fruitPrice;
+    });
+
+    selectedExtras.forEach(extra => {
+        extraList += `<li>${extra.charAt(0).toUpperCase() + extra.slice(1)} ($${extraPrice})</li>`;
+        totalPrice += extraPrice;
+    });
+
+    // Build order summary
+    const orderSummary = `
+        <h3>Your Smoothie Order</h3>
+        <p>Size: ${size.charAt(0).toUpperCase() + size.slice(1)} ($${sizePrices[size]})</p>
+        <p>Base: ${base.charAt(0).toUpperCase() + base.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</p>
+        <p>Fruits: <ul>${fruitList}</ul></p>
+        <p>Extras: <ul>${extraList}</ul></p>
+        <p class="price">Total: $${totalPrice.toFixed(2)}</p>
+    `;
+    
+    // Display order summary
+    document.getElementById('orderSummary').innerHTML = orderSummary;
 }
