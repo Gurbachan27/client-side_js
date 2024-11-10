@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #FFDEE9, #B5FFFC);
+    color: #444;
+}
+
+.container {
+    text-align: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+h2 {
+    color: #ff6b6b;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+label, select, input[type="checkbox"], .price {
+    display: block;
+    margin: 0.5rem 0;
+}
+
+select, button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+    margin-top: 0.5rem;
+    background-color: #ff6b6b;
+    color: white;
+}
+
+button:hover {
+    background-color: #ff4e4e;
+}
+
+#orderSummary {
+    margin-top: 1.5rem;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.price {
+    font-weight: bold;
+    color: #3A4750;
+}
